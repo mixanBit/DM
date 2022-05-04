@@ -1,0 +1,307 @@
+@font-face {
+  font-family: Merri;
+  src: url(/fonts/Merriweather/Merriweather-Black.ttf);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Merri;
+  color: black;
+}
+
+
+a {
+  text-decoration: none;
+}
+
+button,
+input {
+  border: none;
+  outline: none;
+}
+
+header {
+  box-shadow: 0px 2px 15px #FF0043;
+}
+
+.header_block {
+  display: flex;
+  align-items: center;
+  flex-flow: row wrap;
+  grid-gap: 20px;
+  padding: 20px;
+  margin: auto;
+}
+
+.logo {
+  border-radius: 50px;
+  width: 90px;
+  height: 90px;
+  margin: auto;
+  box-shadow: 0px 2px 5px #FF0043;
+  margin: auto;
+}
+
+@media screen and (max-width: 425px) {
+  .logo {
+    margin-left: 0;
+  }
+}
+
+.logo img {
+  width: 100%;
+}
+
+.btn_sidebar {
+  position: absolute;
+  top: 50px;
+  right: 220px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0);
+  padding: 5px;
+}
+
+@media screen and (min-width: 426px) {
+  .btn_sidebar {
+    display: none;
+  }
+}
+
+.btn_sidebar span {
+  border-radius: 50px;
+  width: 100%;
+  height: 3px;
+  background-color: #FF0043;
+  margin: auto;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  flex-flow: row wrap;
+  grid-gap: 15px;
+  margin: auto;
+  transition: .5s;
+}
+
+.sidebar_active {
+  right: 0 !important;
+}
+
+@media screen and (max-width: 425px) {
+  nav {
+    flex-direction: column;
+    position: fixed;
+    width: 200px;
+    height: 100vh;
+    top: 0;
+    right: -210px;
+    background-color: white;
+    padding-top: 20px;
+    box-shadow: 0px 2px 5px #FF0043;
+  }
+}
+
+nav .user_buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  grid-gap: 10px;
+}
+
+.kabinet {
+  font-size: 14px;
+  transition: .3s;
+}
+
+.kabinet:hover {
+  color: #FF0043;
+}
+
+nav .user_buttons button {
+  border: 1px solid #FF0043 !important;
+  cursor: pointer;
+  border-radius: 50px;
+  border: none;
+  min-width: 120px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #FF0043;
+  padding: 7px 10px;
+  transition: .5s;
+}
+
+nav .user_buttons button:hover {
+  color: #000;
+  background-color: #fff;
+}
+
+nav .user_buttons a {
+  font-size: 14px;
+}
+
+/* Модальное окно */
+.modal_window {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  visibility: hidden;
+  opacity: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, .5);
+  transition: .5s;
+}
+
+.modal_active {
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+.modal_user_over {
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  grid-gap: 20px;
+  background-color: #fff;
+  padding: 20px;
+}
+
+form {
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.auth {
+  border: 1px solid rgba(0, 0, 0, 0);
+  cursor: pointer;
+  border-radius: 50px;
+  border: none;
+  min-width: 120px;
+  font-size: 18px;
+  color: #fff;
+  background-color: #FF0043;
+  padding: 7px 10px;
+  transition: .5s;
+}
+
+.reg {
+  cursor: pointer;
+  border: none;
+  background-color: white;
+}
+
+
+form {
+  border-radius: 20px;
+  max-width: 400px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  grid-gap: 10px;
+  background-color: white;
+  margin: auto;
+  padding: 30px;
+}
+
+.input_style {
+  border: 1px solid rgba(0, 0, 0, .2);
+  border-radius: 10px;
+  width: 100%;
+  height: 40px;
+  padding: 0px 7px;
+  transition: .4s;
+}
+
+form button {
+  cursor: pointer;
+  border-radius: 10px;
+  display: flex;
+  font-size: 16px;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  background-color: #FF0043;
+  padding: 5px 15px;
+  margin: auto;
+  margin-right: -200px;
+  transition: .5s;
+  opacity: 0;
+  visibility: visible;
+}
+
+
+/* Форма Авторизации */
+.form_auth {}
+
+.btn_auth {}
+
+.btn_auth_active {
+  margin-right: 0 !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Форма Регистрация */
+.form_reg {}
+
+.btn_reg_active {
+  margin-right: 0 !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+.reg_password_passive {
+  border: 1px solid red !important;
+}
+
+.personal_data {
+  display: flex;
+  align-items: center;
+  grid-gap: 5px;
+}
+
+.personal_data input {
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+}
+
+.personal_data label {
+  user-select: none;
+  cursor: pointer;
+  font-size: 10px;
+}
+
+.error {
+  border-radius: 50px;
+  width: 100%;
+  position: absolute;
+  bottom: -35px;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+  opacity: 0;
+  color: white;
+  background-color: red;
+  padding: 5px;
+  transition: .5s;
+}
+
+.error_active {
+  visibility: visible !important;
+  opacity: 1 !important;
+}

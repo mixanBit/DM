@@ -1,0 +1,17 @@
+
+
+Скрипт validation.js:
+ Валидация незаполненых форм
+ Валидация разных паролей
+
+Таблицы БД:
+ users - пользователи
+ orders - заявка
+ categories - «Обработка данных», «Новая», «Услуга оказана»
+
+
+Плагин:
+ PHP Intelephense
+ Prettier
+
+Диск с заданием - https://drive.google.com/drive/folders/1u1KsRcdYjoG6ovLZdz5h292yzqWddgqv
