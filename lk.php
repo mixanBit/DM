@@ -11,6 +11,28 @@
 </head>
 
 <body>
-  <h1>Вход выполнен!</h1>
+<header>
+    <div class="header_block">
+      <div class="logo">
+        <img src="/logo/logo_groom.png" alt="Логотип">
+      </div>
+      <h1>Пользователь</h1>
+      <!-- Бургер меню -->
+      <nav class="sidebar">
+        <button class="btn_sidebar">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <a class="kabinet" href="index.php">Главная</a>
+        <div class="user_buttons">
+          <a href="index.php">
+            <button class="modal_btn">Выйти</button>
+          </a>
+        </div>
+      </nav>
+    </div>
+  </header>
 </body>
 </html>
