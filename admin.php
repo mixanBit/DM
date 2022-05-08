@@ -30,7 +30,9 @@
 
         <a class="kabinet" href="index.php">Главная</a>
         <div class="user_buttons">
-          <button class="modal_btn">Выход</button>
+          <form action="logout.php" method="POST">
+            <button class="modal_btn">Выйти</button>
+          </form>
         </div>
       </nav>
     </div>

@@ -1,71 +1,105 @@
 // Валидация аторизации
-let authLogin = document.querySelector('.auth_login');
-let authPassword = document.querySelector('.auth_password');
-let btnAuth = document.querySelector('.btn_auth');
-let error = document.querySelector('.error')
+let inputsAuth = document.querySelectorAll('.input_auth')
+let error2 = document.querySelector('.error2')
 
-authLogin.addEventListener('input', authValid)
-authPassword.addEventListener('input', authValid)
+for(let i = 0; i < inputsAuth.length; i++){
+  inputsAuth[i].addEventListener('invalid', check2)
+  inputsAuth[i].addEventListener('input', reset2)
+}
 
 // Если все поля не заполнены
-function authValid(){
-  if(authLogin.value !== '' && authPassword.value !== ''){
-    btnAuth.classList.add('btn_auth_active')
-  } else{
-    btnAuth.classList.remove('btn_auth_active')
-  }
+function check2(event){
+  this.classList.add('input_reg_error')
+  error2.classList.add('error_active')
+  error2.innerText = 'Заполните все поля!'
+  event.preventDefault()
 }
+
+// Снятие выделения
+function reset2(){ this.classList.remove('input_reg_error') }
+
+
+
+
+
 
 // Валидация регистрации
-let regFIO = document.querySelector('.reg_FIO')
-let regLogin = document.querySelector('.reg_login')
-let regEmail = document.querySelector('.reg_email')
-let regPassword = document.querySelector('.reg_password')
-let regTopassword = document.querySelector('.reg_topassword')
+let inputsReg = document.querySelectorAll('.input_reg')
+let error = document.querySelector('.error')
+let formReg = document.querySelector('.form_reg')
 
-let btnReg = document.querySelector('.btn_reg')
-
-regFIO.addEventListener('input', regValid)
-regLogin.addEventListener('input', regValid)
-regEmail.addEventListener('input', regValid)
-regPassword.addEventListener('input', () => {
-  regValid()
-  regPasswordValid()
-})
-regTopassword.addEventListener('input', () => {
-  regValid()
-  regPasswordValid()
-})
-
-// Если все поля не заполнены
-function regValid() {
-  if(regFIO.value !== '' && regLogin.value !== '' && regEmail.value !== '' && regPassword.value !== '' && regTopassword.value !== ''){
-    if(regPassword.value == regTopassword.value){
-      btnReg.classList.add('btn_auth_active')
-    }
-  } else{
-    btnReg.classList.remove('btn_auth_active')
-  }
+for(let i = 0; i < inputsReg.length; i++){
+  inputsReg[i].addEventListener('invalid', check)
+  inputsReg[i].addEventListener('input', reset)
 }
 
-// Если поля пароли не одинаковые 
-function regPasswordValid(){
-  if(regPassword.value !== regTopassword.value){
-    error.classList.add('error_active')
-    error.innerText = 'Вы ввели разные пароли'
-    
-    btnReg.classList.remove('btn_auth_active')
+formReg.addEventListener('submit', checkPassword)
 
-    regPassword.classList.add('reg_password_passive')
-    regTopassword.classList.add('reg_password_passive')
-  } else{
+// Если все поля не заполнены
+function check(event){
+  this.classList.add('input_reg_error')
+  error.classList.add('error_active')
+  error.innerText = 'Заполните все поля!'
+  event.preventDefault()
+}
+
+// Снятие выделения
+function reset(){ this.classList.remove('input_reg_error') }
+
+// Проверка одинаковости паролей  
+function checkPassword(event) {
+  error.classList.remove('error_active')
+  let regPassword = document.querySelector('.reg_password')
+  let regTopassword = document.querySelector('.reg_topassword')
+  if(regPassword.value != regTopassword.value){
+    regPassword.classList.add('input_reg_error')
+    regTopassword.classList.add('input_reg_error')
     error.classList.remove('error_active')
+    setTimeout(() => {error.classList.add('error_active')}, 400)
+    error.innerText = 'Пароли не совподают!'
+    event.preventDefault()
+  } else{
+    regPassword.classList.remove('input_reg_error')
+    regTopassword.classList.remove('input_reg_error')
+    event.preventDefault()
+  }
 
-    regValid()
+  // Проверка согласия на обработку
+  let personal = document.getElementById('personal').checked
+  if(!personal){
+    error.classList.remove('error_active')
+    setTimeout(() => {error.classList.add('error_active')}, 400)
+    error.innerText = 'Поставьте согласие!'
+    event.preventDefault()
+  }
 
-    regPassword.classList.remove('reg_password_passive')
-    regTopassword.classList.remove('reg_password_passive')
-    
+  // Переход на проверку совпадения логина
+  if(regPassword.value == regTopassword.value && personal == true){
+    checkRegister()
+  }
+  event.preventDefault()
+}
+
+// Проверка на совпадение логина
+async function checkRegister() {
+  let regLogin = document.querySelector('.reg_login')
+  let data = new FormData()
+  data.append('login', regLogin.value)
+  
+  let response = await fetch('checkRegister.php', {
+    method: "POST",
+    body: data
+  })
+  
+  let result = await response.json()
+  if(result == 'error'){
+    error.classList.add('error_active')
+    error.innerText = 'Логин уже существует'
+    regLogin.classList.add('input_reg_error')
+  } 
+  else{
+    regLogin.classList.remove('input_reg_error')
+    formReg.submit()
   }
 }
 

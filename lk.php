@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Грум Room</title>
   <link rel="stylesheet" href="/style/style.css">
-  <!-- <script src="/scripts/script.js" defer></script> -->
+  <script src="/scripts/script.js" defer></script>
 </head>
 
 <body>
@@ -28,7 +28,9 @@
         <a class="kabinet" href="index.php">Главная</a>
         <div class="user_buttons">
           <a href="index.php">
-            <button class="modal_btn">Выйти</button>
+            <form action="logout.php" method="POST">
+              <button class="modal_btn">Выйти</button>
+            </form>
           </a>
         </div>
       </nav>

@@ -8,7 +8,6 @@
   <title>Грум Room</title>
 
   <link rel="stylesheet" href="/style/style.css">
-  <link rel="stylesheet" href="/style/exit.css">
 
   <script src="/scripts/script.js" defer></script>
   <script src="/scripts/validation.js" defer></script>
@@ -30,7 +29,6 @@
           <span></span>
         </button>
 
-        <a class="kabinet" href="index.php">Главная</a>
         <div class="user_buttons">
           <button class="modal_btn">Личный кабинет</button>
         </div>
@@ -50,9 +48,11 @@
   <div class="modal_window">
     <form class="form_auth modal_window_overlay" action="login.php" method="post">
       <h2>Авторизация</h2>
-      <input class="auth_login input_style" placeholder="Логин" required type="text" name="login">
-      <input class="auth_password input_style" placeholder="Пароль" required type="password" name="password">
-      <button class='btn_auth'>Далее ></button>
+      <input class="auth_login input_style input_auth" placeholder="Логин" required type="text" name="login">
+      <input class="auth_password input_style input_auth" placeholder="Пароль" required type="password" name="password">
+      <button class='btn_auth btn_auth_active'>Далее ></button>
+
+      <div class="error2"></div>
     </form>
   </div>
 
@@ -60,21 +60,20 @@
   <div class="modal_window">
     <form class="form_reg modal_window_overlay" action="registration.php" method="post">
       <h2>Регистрация</h2>
-      <input class="reg_FIO input_style" placeholder="ФИО" required type="text" name="name">
-      <input class="reg_login input_style" placeholder="Логин" required type="text" name="login">
-      <input class="reg_email input_style" placeholder="Email" required type="email" name="email">
-      <input class="reg_password input_style" placeholder="Пароль" required type="password" name="password">
-      <input class="reg_topassword input_style" placeholder="Повтор пороля" required type="password">
+      <input class="reg_FIO input_style input_reg" placeholder="ФИО" required type="text" name="name">
+      <input class="reg_login input_style input_reg" placeholder="Логин" required type="text" name="login">
+      <input class="reg_email input_style input_reg" placeholder="Email" required type="email" name="email">
+      <input class="reg_password input_style input_reg" placeholder="Пароль" required type="password" name="password">
+      <input class="reg_topassword input_style input_reg" placeholder="Повтор пороля" required type="password">
       <div class="personal_data">
-        <input id="personal" type="checkbox" checked="true">
+        <input id="personal" type="checkbox">
         <label for="personal">Обработка персональных данных</label>
       </div>
-      <button class="btn_reg">Далее ></button>
+      <button class="btn_reg btn_reg_active">Далее ></button>
 
       <div class="error"></div>
     </form>
   </div>
 
 </body>
-
 </html>

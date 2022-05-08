@@ -10,23 +10,21 @@
 <body>
 
   <?php 
+    session_start();
+    $mysql = new mysqli('localhost', 'root', '', 'gromroom');
+
     $login = $_POST['login'];
     $password = md5($_POST['password']);
-
-    // $adminLogin = 'admin';
-    // $adminPassword = 'admin';
-
-    $mysql = new mysqli('localhost', 'root', '', 'gromroom');
 
     $result = $mysql->query("SELECT * FROM `users` WHERE `login` = '$login' AND `password` = '$password'");
 
     $user = $result->fetch_assoc();
 
+    // $userId = $user['id'];
+    // $login = $user['login'];  
+    // $_SESSION['userId'] = $userId;
+    // $_SESSION['login'] = $login;
 
-    // if($login == $adminLogin && $password == $adminPassword){
-    //   $mysql->close();
-    //   header('Location: admin.php');
-    // } 
     if(isset($user) == 0){
       echo '
       <div class="exit_con">
@@ -37,10 +35,17 @@
         </div>
       ';
       exit();
-    } else{
-      $mysql->close();
+    } 
+    else if($login == 'admin'){
+      setcookie('user', $user['login'], time() + 3600, "/");
+      header('Location: admin.php');
+    }
+    else{
+      setcookie('user', $user['login'], time() + 3600, "/");
       header('Location: lk.php');
     }
+    
+    $mysql->close();
   ?>
   
 </body>
