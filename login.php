@@ -20,11 +20,6 @@
 
     $user = $result->fetch_assoc();
 
-    // $userId = $user['id'];
-    // $login = $user['login'];  
-    // $_SESSION['userId'] = $userId;
-    // $_SESSION['login'] = $login;
-
     if(isset($user) == 0){
       echo '
       <div class="exit_con">
@@ -38,10 +33,12 @@
     } 
     else if($login == 'admin'){
       setcookie('user', $user['login'], time() + 3600, "/");
+      setcookie('userId', $user['id'], time() + 3600, "/");
       header('Location: admin.php');
     }
     else{
       setcookie('user', $user['login'], time() + 3600, "/");
+      setcookie('userId', $user['id'], time() + 3600, "/");
       header('Location: lk.php');
     }
     
