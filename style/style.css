@@ -58,6 +58,8 @@ header {
 }
 
 .sidebar{
+  background-color: #fff;
+  /* z-index: 5; */
   display: flex;
   justify-content: flex-end;
 }
@@ -94,7 +96,7 @@ nav {
   display: flex;
   align-items: center;
   flex-flow: row wrap;
-  grid-gap: 5px;
+  grid-gap: 20px;
   transition: .5s;
 }
 
@@ -167,13 +169,14 @@ nav .user_buttons a {
 /* Модальное окно */
 .modal_window {
   width: 100%;
-  height: 100%;
+  height: 100vh;
   position: fixed;
   z-index: 2;
   top: 0;
   left: 0;
   visibility: hidden;
   opacity: 0;
+  transform: scale(.5);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -184,6 +187,7 @@ nav .user_buttons a {
 .modal_active {
   visibility: visible !important;
   opacity: 1 !important;
+  transform: scale(1);
 }
 
 .modal_user_over {
@@ -201,10 +205,9 @@ form {
 }
 
 .auth {
-  border: 1px solid rgba(0, 0, 0, 0);
+  border: 1px solid #FF0043;
   cursor: pointer;
   border-radius: 50px;
-  border: none;
   min-width: 120px;
   font-size: 18px;
   color: #fff;
@@ -213,10 +216,21 @@ form {
   transition: .5s;
 }
 
+.auth:hover{
+  border: 1px solid #FF0043;
+  color: #000;
+  background-color: #fff;
+}
+
 .reg {
   cursor: pointer;
   border: none;
   background-color: white;
+  transition: .3s;
+}
+
+.reg:hover{
+  color: #FF0043;
 }
 
 
@@ -255,12 +269,11 @@ form button {
   transition: .5s;
 }
 
+.exit{
+  padding: 0 !important;
+}
 
 /* Форма Авторизации */
-.form_auth {}
-
-.btn_auth {}
-
 .btn_auth_active {
   margin-right: 0 !important;
   opacity: 1 !important;
@@ -335,9 +348,25 @@ form button {
   transition: .5s;
 }
 
+.error3 {
+  border-radius: 50px;
+  width: 100%;
+  position: absolute;
+  bottom: -45px;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  color: white;
+  background-color: red;
+  transform: scale(0);
+  padding: 5px;
+  transition: .5s;
+}
+
 .error_active {
   visibility: visible !important;
   opacity: 1 !important;
   transform: scale(1);
-  /* bottom: -35px !important; */
 }

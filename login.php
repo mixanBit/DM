@@ -33,12 +33,12 @@
     } 
     else if($login == 'admin'){
       setcookie('user', $user['login'], time() + 3600, "/");
-      setcookie('userId', $user['id'], time() + 3600, "/");
+      setcookie('userid', $user['id'], time() + 3600, "/");
       header('Location: admin.php');
     }
     else{
       setcookie('user', $user['login'], time() + 3600, "/");
-      setcookie('userId', $user['id'], time() + 3600, "/");
+      setcookie('userid', $user['id'], time() + 3600, "/");
       header('Location: lk.php');
     }
     

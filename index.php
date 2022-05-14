@@ -8,9 +8,11 @@
   <title>Грум Room</title>
 
   <link rel="stylesheet" href="/style/style.css">
+  <link rel="stylesheet" href="/style/order.css">
 
   <script src="/scripts/script.js" defer></script>
   <script src="/scripts/validation.js" defer></script>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script> -->
 </head>
 
 <body>
@@ -20,6 +22,10 @@
       <div class="logo">
         <img src="/logo/logo_groom.png" alt="Логотип">
       </div>
+
+      <!-- <div id="app">
+        {{ message }}
+      </div> -->
 
       <!-- Бургер меню -->
       <nav class="sidebar">
@@ -73,6 +79,27 @@
 
       <div class="error"></div>
     </form>
+  </div>
+
+  <div class="order_container2">
+  <?php
+      $mysql = new mysqli('127.0.0.1', 'root', '', 'gromroom');
+      $table = $mysql->query("SELECT * FROM `formorders`");
+
+      while($result = $table->fetch_assoc()){
+        echo '
+        <div class="order_box">
+          <div class="order_text">
+            <h2>'.$result['pet'].'</h2>
+            <p>'.$result['description'].'</p>
+            <p>'.$result['category'].'</p>
+            <p>'.$result['datetime'].'</p>
+          </div>
+          <div class="status">'.$result['status'].'</div>
+        </div>
+        ';
+      }
+    ?>
   </div>
 
 </body>

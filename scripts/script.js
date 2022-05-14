@@ -22,3 +22,10 @@ let sidebar = document.querySelector('.sidebar')
 btnSidebar.addEventListener('click', () => {
   sidebar.classList.toggle('sidebar_active')
 })
+
+// var app = new Vue({
+//   el: '#app',
+//   data: {
+//     message: 'Привет, Vue!'
+//   }
+// })

@@ -1,0 +1,83 @@
+.order_container{
+  max-width: 1440px;
+  margin: auto;
+  padding: 0px 10px;
+}
+
+
+.order_btn{
+  border: 1px solid #FF0043;
+  border-radius: 50px;
+  cursor: pointer;
+  max-width: 210px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  grid-gap: 7px;
+  color: white;
+  background-color: #FF0043;
+  /* padding: 15px; */
+  margin-top: 30px;
+  transition: .4s;
+}
+
+.order_btn:hover{
+  border: 1px solid #FF0043;
+  color: black;
+  background-color: white;
+}
+
+.order_btn h2{
+  font-size: 40px;
+  color: inherit;
+  margin-top: -2px;
+}
+
+.order_btn p{
+  color: inherit;
+}
+
+
+/* Вывод заявок */
+.order_container2{
+  max-width: 1440px;
+  display: flex;
+  justify-content: flex-start;
+  flex-flow: row wrap;
+  grid-gap: 20px;
+  margin: auto;
+  margin-top: 40px;
+  padding: 0 10px 0 10px;
+}
+
+.order_box{
+  border-radius: 20px;
+  max-width: 300px;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0px 2px 5px #FF0043;
+}
+
+.order_text{
+  display: flex;
+  flex-direction: column;
+  grid-gap: 5px;
+  padding: 5px 15px 10px 15px;
+  margin-top: 40px;
+}
+
+.order_box img{
+  width: 100%;
+}
+
+.status{
+  border-bottom-right-radius: 20px;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  font-size: 18px;
+  color: white;
+  background-color: #FF0043;
+  padding: 7px;
+}
