@@ -19,7 +19,9 @@ a {
 }
 
 button,
-input {
+input,
+select,
+option {
   border: none;
   outline: none;
 }

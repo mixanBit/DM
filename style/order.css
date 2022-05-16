@@ -37,6 +37,10 @@
   color: inherit;
 }
 
+.order_img{
+  border: #FF0043;
+  background-color: #fff;
+}
 
 /* Вывод заявок */
 .order_container2{
@@ -54,21 +58,33 @@
   border-radius: 20px;
   max-width: 300px;
   width: 100%;
+  display: flex;
+  align-items: flex-start;
   overflow: hidden;
   position: relative;
+  z-index: -1;
   box-shadow: 0px 2px 5px #FF0043;
+}
+
+@media screen and (max-width: 425px) {
+  .order_box{
+    max-width: 100%;
+  }
 }
 
 .order_text{
   display: flex;
   flex-direction: column;
   grid-gap: 5px;
-  padding: 5px 15px 10px 15px;
+  padding: 0px 10px 10px 10px;
   margin-top: 40px;
 }
 
 .order_box img{
+  max-width: 100px;
   width: 100%;
+  padding: 5px;
+  margin-top: 40px;
 }
 
 .status{

@@ -8,8 +8,12 @@
     $username = $_COOKIE['user'];
     $category = $_POST['category'];
     $status = 'Новая';
+    // $img = $_POST['img'];
+    $img = $_POST['img'];
+
+
 
     // Запись в базу
-    $mysql->query("INSERT INTO `formorders`(`pet`, `description`, `userid`, `username`, `category`, `status`) VALUES ('$pet','$description','$userid','$username', '$category', '$status')");
+    $mysql->query("INSERT INTO `formorders`(`pet`, `description`, `userid`, `username`, `category`, `status`, `img`) VALUES ('$pet','$description','$userid','$username', '$category', '$status', '$img')");
     header("Location: lk.php");
 ?>

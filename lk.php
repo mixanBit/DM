@@ -100,8 +100,8 @@
           <option>Категория 1</option>
           <option>Категория 2</option>
         </select>
+        <input class="order_img" type="file" name="img">
         <button class="btn_reg_active">Отправить ></button>
-
         <div class="error3"></div>
       </form>
     </div>
@@ -118,6 +118,7 @@
       while($result = $table->fetch_assoc()){
         echo '
         <div class="order_box">
+        <img src="'.$result['img'].'" alt="">
           <div class="order_text">
             <h2>'.$result['pet'].'</h2>
             <p>'.$result['description'].'</p>

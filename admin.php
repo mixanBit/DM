@@ -6,7 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title><?php echo $_COOKIE['user']; ?></title>
+
+  <link rel="stylesheet" href="/style/order.css">
   <link rel="stylesheet" href="/style/style.css">
+  
   <script src="/scripts/script.js" defer></script>
 </head>
 
@@ -37,5 +40,26 @@
       </nav>
     </div>
   </header>
+
+  <div class="order_container2">
+  <?php
+      $mysql = new mysqli('127.0.0.1', 'root', '', 'gromroom');
+      $table = $mysql->query("SELECT * FROM `formorders`");
+
+      while($result = $table->fetch_assoc()){
+        echo '
+        <div class="order_box">
+          <div class="order_text">
+            <h2>'.$result['pet'].'</h2>
+            <p>'.$result['description'].'</p>
+            <p>'.$result['category'].'</p>
+            <p>'.$result['datetime'].'</p>
+          </div>
+          <div class="status">'.$result['status'].'</div>
+        </div>
+        ';
+      }
+    ?>
+  </div>
 </body>
 </html>
